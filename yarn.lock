@@ -836,6 +836,10 @@ globals@^13.6.0, globals@^13.9.0:
   dependencies:
     type-fest "^0.20.2"
 
+gsap@/Users/adamkozel/Documents/GitHub/vite-javascript-webflow/gsap.tgz:
+  version "3.10.0"
+  resolved "/Users/adamkozel/Documents/GitHub/vite-javascript-webflow/gsap.tgz#f2eb70c09239fe98f7951cfbcb7a9b614ec8028b"
+
 gsap@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.9.1.tgz#d4c7443540497afee9ddc0824fd0180224e33360"
