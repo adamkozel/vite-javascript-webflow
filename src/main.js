@@ -4,6 +4,11 @@ import { SplitText } from 'gsap/SplitText'
 import SmoothScroll from './assets/SmoothScroll'
 SmoothScroll()
 
+//Constants
+const start = 'top bottom-=20%'
+const end = 'bottom top+=50%'
+const triggerAbout = '.items'
+
 // Create the onload timeline
 export const onloadTimeline = gsap.timeline()
 
@@ -176,7 +181,7 @@ function marqueeAppear() {
 }
 
 gsap.fromTo(
-  ['.information', '#dots-header'],
+  ['#information-header', '#dots-header'],
   {
     y: 0, // initial position
     opacity: 1, // initial opacity
@@ -236,8 +241,82 @@ gsap.to(nonEmptyLines, {
   },
   scrollTrigger: {
     trigger: paragraphAbout,
-    scrub: 1,
-    start: 'top center',
+    scrub: 2,
+    start: 'top bottom-=20%',
     end: 'bottom top+=30%',
+    markers: false,
   },
 })
+
+// Timeline for the dividers scaling from left to right
+gsap.set('.divider', {
+  opacity: 0,
+  scaleX: 0,
+  transformOrigin: 'left',
+})
+const tlDividers = gsap.timeline({
+  scrollTrigger: {
+    markers: false,
+    trigger: triggerAbout,
+    start: start,
+    end: end,
+    scrub: 4,
+  },
+})
+
+tlDividers.to('.divider', {
+  opacity: 1,
+  scaleX: 1,
+  stagger: 0.07,
+})
+gsap.set(
+  '#left-1, #right-1, #left-2, #right-2, #left-3, #right-3, #left-4, #right-4',
+  {
+    y: 40,
+    transformOrigin: 'left',
+  }
+)
+// Timeline for the dividers scaling from left to right
+
+const tlChildren = gsap.timeline({
+  scrollTrigger: {
+    trigger: triggerAbout,
+    start: start,
+    end: end,
+    scrub: true,
+  },
+})
+
+tlChildren.to(
+  '#left-1, #right-1, #left-2, #right-2, #left-3, #right-3, #left-4, #right-4',
+  {
+    y: 0,
+    stagger: 0.1,
+  }
+)
+function dotsContentAppear(selector) {
+  gsap.fromTo(
+    selector + ' > *',
+    {
+      scale: 0,
+      opacity: 0,
+    },
+    {
+      scale: 1,
+      opacity: 1,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: selector,
+        start: 'top 80%', // Adjust the start position as desired
+        end: 'bottom 80%', // Adjust the end position as desired
+        scrub: 2,
+      },
+    }
+  )
+}
+
+dotsContentAppear('#dots-about')
+dotsContentAppear('#dots-project-02')
+dotsContentAppear('#dots-project-03')
+dotsContentAppear('#dots-project-04')
+dotsContentAppear('#dots-footer')
