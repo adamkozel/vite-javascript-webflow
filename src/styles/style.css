@@ -23,3 +23,25 @@
   display: inline-block;
   white-space: pre-wrap;
 }
+.button-cta {
+  perspective: 300rem;
+}
+.information-header {
+  perspective: 300rem;
+}
+.contact {
+  perspective: 300rem;
+}
+.frame-196 {
+  perspective: 300rem;
+}
+.about {
+  perspective: 300rem;
+}
+.cube {
+  perspective: 300rem;
+}
+.image-footer {
+  perspective: 300rem;
+}
+

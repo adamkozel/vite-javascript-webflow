@@ -23,6 +23,8 @@
     "vite-plugin-eslint": "^1.3.0"
   },
   "dependencies": {
+    "babylonjs": "^6.33.2",
+    "babylonjs-loaders": "^6.33.2",
     "gsap": "/Users/adamkozel/Documents/GitHub/vite-javascript-webflow/gsap.tgz"
   }
 }
