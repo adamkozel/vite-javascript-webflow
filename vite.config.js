@@ -18,10 +18,11 @@ export default defineConfig({
     rollupOptions: {
       input: './src/main.js',
       output: {
-        format: 'umd',
-        entryFileNames: 'main.js',
-        esModule: false,
-        compact: true,
+        dir: 'dist',
+        format: 'es',
+        entryFileNames: '[name].js',
+        sourcemap: true,
+        inlineDynamicImports: true,
         globals: {
           jquery: '$',
         },
